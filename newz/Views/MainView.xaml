@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="newz.Views.MainView">
+	<ContentPage.Content>
+		<RelativeLayout>
+			<Image Source="background.jpg" Aspect="AspectFill"
+					RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+					RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"
+					/>
+			<StackLayout BackgroundColor="Transparent" Spacing="20" Padding="20"
+					RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+					RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.4,Constant=0}"
+					RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.1,Constant=0}"
+					>
+            	<Button HorizontalOptions="Fill" Text="Example using BBC RSS Feed" TextColor="Black" Command="{Binding GoToRssNewsCommand}" BackgroundColor="#CFDC2E" BorderRadius="10" BorderColor="Black" BorderWidth="1" />
+				<Button HorizontalOptions="Fill" Text="Example using News Api" TextColor="Black" Command="{Binding GoToApiNewsCommand}" BackgroundColor="#CFDC2E" BorderRadius="10" BorderColor="Black" BorderWidth="1" />
+        	</StackLayout>
+		</RelativeLayout>
+        
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="newz.Views.ArticlesView"
+		xmlns:Utils="clr-namespace:newz.Utils;assembly=newz">
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0" Padding="0">
+	  		<ListView x:Name="ArticlesList" SeparatorVisibility="None" RowHeight="200" HasUnevenRows="false" CachingStrategy="RecycleElement">
+	    		<ListView.ItemTemplate>
+	      			<DataTemplate>
+						<ViewCell>
+							<RelativeLayout Padding="0">
+								<Image Source="{Binding urlToImage}" Aspect="AspectFill"
+										RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+										RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"
+									/>
+								<Label VerticalOptions="Start" HorizontalOptions="EndAndExpand" FontSize="11" HorizontalTextAlignment="End" Text="{Binding date}" TextColor="#333" BackgroundColor="White" Opacity=".9"
+										RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.8,Constant=11}"
+										RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=10}"/>
+								<StackLayout BackgroundColor="#F6F6F6" Opacity=".95" Spacing="0" Orientation="Vertical"
+										RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+										RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.4,Constant=0}"
+										RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.6,Constant=0}"
+										>
+										<StackLayout Spacing="5" Padding="10" Orientation="Vertical" HorizontalOptions="StartAndExpand" IsClippedToBounds="true">
+											<Label HorizontalOptions="Start" FontSize="16" FontAttributes="Bold" Text="{Binding title}" LineBreakMode="TailTruncation" TextColor="#CFDC2E" />
+		                            		<Label FontSize="12" Text="{Binding description}" HorizontalOptions="Start" LineBreakMode="WordWrap" TextColor="Black" />
+		                        		</StackLayout>
+								</StackLayout>
+
+							</RelativeLayout>
+
+                		</ViewCell>
+		      		</DataTemplate>
+		    	</ListView.ItemTemplate>
+		  	</ListView>
+			<Utils:Loading x:Name="Loading" Color="#CFDC2E" IsRunning="true" IsVisible="true" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
